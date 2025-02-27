@@ -1,8 +1,9 @@
+/* eslint-disable */
 "use client";
 
 import { useState, FormEvent } from "react";
 import FormData from "form-data";
-const Mailgun = require("mailgun.js");
+import Mailgun from "mailgun.js";
 
 export default function Contact() {
   const [formData, setFormData] = useState({

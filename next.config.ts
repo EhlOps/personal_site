@@ -7,6 +7,7 @@ const nextConfig: NextConfig = {
     API_KEY: process.env.API_KEY,
     EMAIL: process.env.EMAIL,
   },
+  amd: true,
 };
 
 export default nextConfig;

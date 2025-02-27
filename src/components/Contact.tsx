@@ -2,7 +2,7 @@
 
 import { useState, FormEvent } from "react";
 import FormData from "form-data";
-import Mailgun from "mailgun.js";
+const Mailgun = require("mailgun.js");
 
 export default function Contact() {
   const [formData, setFormData] = useState({

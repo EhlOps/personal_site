@@ -3,6 +3,8 @@
 
 import { useState, FormEvent } from "react";
 import FormData from "form-data";
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-ignore
 import Mailgun from "mailgun.js";
 
 export default function Contact() {

@@ -40,7 +40,7 @@ export default function Projects() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
           {projects.map((project, index) => (
             <div key={index} className="project-card">
-              <Link href={project.link}>
+              <Link href={project.link} target="_blank">
                 <h3 className="text-base mb-2">{project.title}</h3>
                 <p className="text-xs text-gray-600">{project.description}</p>
               </Link>

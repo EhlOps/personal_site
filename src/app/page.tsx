@@ -1,27 +1,27 @@
-import Header from "../components/Header";
-import Profile from "../components/Profile";
-import About from "../components/About";
-import Skills from "../components/Skills";
-import Projects from "../components/Projects";
-import Contact from "../components/Contact";
-import Footer from "../components/Footer";
+import { SiteHeader } from "@/components/nav/SiteHeader";
+import { Hero } from "@/components/sections/Hero";
+import { Impact } from "@/components/sections/Impact";
+import { Experience } from "@/components/sections/Experience";
+import { Projects } from "@/components/sections/Projects";
+import { Leadership } from "@/components/sections/Leadership";
+import { Skills } from "@/components/sections/Skills";
+import { Contact } from "@/components/sections/Contact";
+import { SiteFooter } from "@/components/SiteFooter";
 
 export default function Home() {
   return (
-    <div className="max-w-6xl mx-auto px-4">
-      <Header />
-      <hr className="border-gray-200 my-5" />
-      <Profile />
-      <hr className="border-gray-200 my-5" />
-      <About />
-      <hr className="border-gray-200 my-5" />
-      <Skills />
-      <hr className="border-gray-200 my-5" />
-      <Projects />
-      <hr className="border-gray-200 my-5" />
-      <Contact />
-      <hr className="border-gray-200 my-5" />
-      <Footer />
-    </div>
+    <>
+      <SiteHeader />
+      <main id="content">
+        <Hero />
+        <Impact />
+        <Experience />
+        <Projects />
+        <Leadership />
+        <Skills />
+        <Contact />
+      </main>
+      <SiteFooter />
+    </>
   );
 }

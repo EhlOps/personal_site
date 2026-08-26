@@ -1,36 +1,52 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# ehlops.com
 
-## Getting Started
+Sam Ehlers' personal site — a Next.js 15 App Router project, statically exported and deployed to GitHub Pages
+at [ehlops.com](https://ehlops.com).
 
-First, run the development server:
+## Stack
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+- **Next.js 15** (App Router, static export via `output: "export"`)
+- **TypeScript**
+- **Tailwind CSS v4** (CSS-first `@theme` tokens in `src/app/globals.css` — no `tailwind.config.ts`)
+- No animation library — motion is hand-rolled CSS + a handful of small client hooks (see
+  `src/components/primitives/Reveal.tsx` and `src/lib/hooks/`)
+
+## Content model
+
+All résumé content lives in `src/data/` as typed data, not hardcoded in components. The core discipline is the
+**attribution model** in `src/data/types.ts`: every claim is tagged `self`, `team`, or `company`, and a
+company-level fact cannot be entered as one of Sam's own achievements — the type system enforces the
+separation, and a build-time check in `src/data/index.ts` fails the build if a company fact ships without a
+source.
+
+```
+src/data/
+  types.ts        # the attribution model — read this first
+  brands.ts       # logo registry: asset path, license, invert/color treatment
+  skills.ts       # skill registry, referenced by id from experience/projects
+  site.ts         # identity, socials, availability, SEO copy
+  experience.ts   # work history
+  leadership.ts   # NER
+  education.ts    # degree, coursework, certifications
+  projects.ts     # projects, grouped + archive tier
+  metrics.ts       # hero stat tiles
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Brand assets
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Logos are vendored (not hotlinked) into `public/brand/`. See `public/brand/ATTRIBUTION.md` for the license and
+source of every asset.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Development
 
-## Learn More
+```bash
+npm install
+npm run dev     # http://localhost:3000
+npm run build   # static export to ./out
+```
 
-To learn more about Next.js, take a look at the following resources:
+## Deployment
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+`.github/workflows/nextjs.yml` builds and deploys `./out` to GitHub Pages on every push to `main`. The Next
+config (`next.config.ts`) owns `output: "export"` and `images.unoptimized` directly — the workflow does not
+let `actions/configure-pages` inject its own config, since that would silently shadow this project's.

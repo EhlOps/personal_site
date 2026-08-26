@@ -1,13 +1,17 @@
 import type { NextConfig } from "next";
+import path from "node:path";
 
 const nextConfig: NextConfig = {
+  // Pins the workspace root to this repo — avoids Next.js misdetecting it
+  // via an unrelated lockfile elsewhere on a dev machine's filesystem.
+  outputFileTracingRoot: path.resolve(__dirname),
+  output: "export",
+  // Injected by actions/configure-pages in CI. Empty string for a custom
+  // domain (ehlops.com) served from the repo root, which is the case here.
+  basePath: process.env.PAGES_BASE_PATH || "",
+  images: { unoptimized: true },
+  trailingSlash: true,
   reactStrictMode: true,
-  env: {
-    MAILGUN: process.env.MAILGUN,
-    API_KEY: process.env.API_KEY,
-    EMAIL: process.env.EMAIL,
-  },
-  amd: true,
 };
 
 export default nextConfig;

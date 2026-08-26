@@ -84,7 +84,7 @@ function PersonJsonLd() {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${sans.variable} ${mono.variable}`}>
+    <html lang="en" suppressHydrationWarning className={`${sans.variable} ${mono.variable}`}>
       <head>
         {/* Sets `.js` before first paint so [data-reveal] can safely default
             to hidden — see the no-JS guard in globals.css. Without this, a

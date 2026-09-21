@@ -18,7 +18,7 @@ export interface MetaRowProps {
 const gridCols = { 2: "grid-cols-2", 3: "grid-cols-2 sm:grid-cols-3", 4: "grid-cols-2 sm:grid-cols-4" };
 
 export function MetaRow({ items, layout = "grid", columns = 4, size = "md" }: MetaRowProps) {
-  const valueSize = size === "sm" ? "text-micro-lg" : "text-sm";
+  const valueSize = size === "sm" ? "text-fine" : "text-sm";
 
   return (
     <dl

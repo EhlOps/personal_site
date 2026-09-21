@@ -23,12 +23,6 @@ const resumeSkills: Skill[] = skills.filter((s) => resumeSkillIds.includes(s.id)
 export function Skills() {
   return (
     <Section id="skills" index="05" eyebrow="Skills" title="What I reach for">
-      <Reveal>
-        <MicroLabel size="sm" tone="faint" className="mb-6 block">
-          ● Primary &nbsp;&nbsp; ○ Working knowledge
-        </MicroLabel>
-      </Reveal>
-
       <div className="grid grid-cols-1 divide-y divide-line sm:grid-cols-2 sm:divide-x sm:divide-y-0 lg:grid-cols-4">
         {clusters.map((cluster, i) => {
           const items = resumeSkills
@@ -36,16 +30,13 @@ export function Skills() {
             .sort((a, b) => a.rank - b.rank);
 
           return (
-            <Reveal key={cluster.label} delay={Math.min(i * 60, 240)} className="px-0 py-6 sm:px-6 sm:first:pl-0">
+            <Reveal key={cluster.label} delay={Math.min(i * 60, 240)} className="px-0 py-4 sm:px-6 sm:py-5 sm:first:pl-0">
               <MicroLabel size="sm" tone="faint" className="mb-4 block">
                 {cluster.label}
               </MicroLabel>
               <ul className="flex flex-col gap-2.5">
                 {items.map((skill) => (
-                  <li key={skill.id} className="flex items-center gap-2 text-sm text-ink-2">
-                    <span aria-hidden className={skill.primary ? "text-accent" : "text-ink-3"}>
-                      {skill.primary ? "●" : "○"}
-                    </span>
+                  <li key={skill.id} className="text-sm text-ink-2">
                     {skill.name}
                   </li>
                 ))}
@@ -55,7 +46,7 @@ export function Skills() {
         })}
       </div>
 
-      <Reveal delay={120} className="mt-10">
+      <Reveal delay={120} className="mt-7">
         <Rule label="Certifications" className="mb-5" />
         <ul className="flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:gap-x-10 sm:gap-y-3">
           {certifications.map((cert) => {
@@ -65,7 +56,7 @@ export function Skills() {
                 <LogoMark brand={brand} height={18} />
                 <span className="text-sm text-ink-2">
                   {cert.name}
-                  {cert.note && <span className="text-ink-3"> — {cert.note}</span>}
+                  {cert.note && <span className="text-ink-3"> ({cert.note})</span>}
                 </span>
               </li>
             );

@@ -22,7 +22,7 @@ export function LogoMark({ brand, height = 24, treatment, className }: LogoMarkP
   if (!brand.asset) {
     return (
       <span
-        className={cn("font-sans font-semibold tracking-[-0.01em] text-ink-2", wordmarkSizeByHeight(height), className)}
+        className={cn("font-mono font-medium uppercase tracking-[0.08em] text-ink-2", wordmarkSizeByHeight(height), className)}
       >
         {brand.wordmark}
       </span>
@@ -43,9 +43,7 @@ export function LogoMark({ brand, height = 24, treatment, className }: LogoMarkP
       decoding="async"
       className={cn(
         "inline-block object-contain object-left",
-        finalTreatment === "mono" &&
-          brand.invertOnDark &&
-          "brightness-0 invert transition-[filter] duration-[var(--duration-fast)] group-hover:brightness-100 group-hover:invert-0",
+        finalTreatment === "mono" && brand.invertOnDark && "brightness-0 invert",
         className,
       )}
     />

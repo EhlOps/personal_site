@@ -1,11 +1,21 @@
 import "./globals.css";
 import type { Metadata, Viewport } from "next";
-import { Inter, JetBrains_Mono } from "next/font/google";
+import { Sansation, JetBrains_Mono } from "next/font/google";
 import { SkipLink } from "@/components/primitives/SkipLink";
-import { GridBackdrop } from "@/components/primitives/GridBackdrop";
+import { EmberField } from "@/components/primitives/EmberField";
 import { site, resumeSkillIds, getSkill, currentRole, getBrand } from "@/data";
 
-const sans = Inter({ subsets: ["latin"], display: "swap", variable: "--font-inter" });
+const sans = Sansation({
+  subsets: ["latin"],
+  weight: ["300", "400", "700"],
+  display: "swap",
+  // Sansation has no precomputed metrics in Next's bundled fallback-font
+  // database, so this calculation always fails; skip attempting it rather
+  // than fail-and-log on every build. No behavior change (there's no
+  // metric-matched fallback either way), just removes the build noise.
+  adjustFontFallback: false,
+  variable: "--font-inter",
+});
 const mono = JetBrains_Mono({ subsets: ["latin"], display: "swap", variable: "--font-jb" });
 
 export const metadata: Metadata = {
@@ -84,10 +94,10 @@ function PersonJsonLd() {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${sans.variable} ${mono.variable}`}>
+    <html lang="en" suppressHydrationWarning className={`${sans.variable} ${mono.variable}`}>
       <head>
         {/* Sets `.js` before first paint so [data-reveal] can safely default
-            to hidden — see the no-JS guard in globals.css. Without this, a
+            to hidden. See the no-JS guard in globals.css. Without this, a
             visitor with JS disabled would see a permanently invisible page. */}
         <script
           // eslint-disable-next-line react/no-danger
@@ -97,7 +107,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       </head>
       <body className="bg-base font-sans text-ink antialiased">
         <SkipLink />
-        <GridBackdrop variant="page" />
+        <EmberField />
         {children}
       </body>
     </html>

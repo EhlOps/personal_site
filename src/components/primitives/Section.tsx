@@ -17,7 +17,7 @@ export function Section({ id, index, eyebrow, title, lede, readout, children, cl
     <section
       id={id}
       aria-labelledby={`${id}-title`}
-      className={`scroll-mt-[calc(var(--header-h)+2rem)] py-20 sm:py-28 lg:py-32 ${className ?? ""}`}
+      className={`scroll-mt-[calc(var(--header-h)+2rem)] py-10 sm:py-14 lg:py-16 ${className ?? ""}`}
     >
       <Container>
         <SectionHeading id={id} index={index} eyebrow={eyebrow} title={title} lede={lede} readout={readout} />

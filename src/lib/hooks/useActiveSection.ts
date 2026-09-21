@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 
 /**
  * Scroll-spy via a thin "scan line" band just under the header, rather than
- * naive "first intersecting entry" — which flickers because several
+ * naive "first intersecting entry", which flickers because several
  * sections can intersect at once. Picks whichever observed section is
  * closest to the scan line, with a bottom-of-page override so a short final
  * section can still activate.

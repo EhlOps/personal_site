@@ -1,6 +1,6 @@
 # Build and deploy the Next.js static export to GitHub Pages.
 #
-# next.config.ts owns `output: "export"` and `images.unoptimized` directly —
+# next.config.ts owns `output: "export"` and `images.unoptimized` directly.
 # do NOT let actions/configure-pages inject a next.config.js, since Next
 # resolves next.config.js before next.config.ts and that would silently
 # shadow this project's config.

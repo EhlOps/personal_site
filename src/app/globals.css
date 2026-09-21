@@ -1,22 +1,22 @@
 @import "tailwindcss";
 
 /* ═══════════════════════════════════════════════════════════════════════
-   HUD TOKENS — dark only, one accent (phosphor amber).
-   To rebrand: change --color-accent* — everything else derives from it.
+   HUD TOKENS: dark only, one accent (phosphor amber).
+   To rebrand: change --color-accent*; everything else derives from it.
    ═══════════════════════════════════════════════════════════════════════ */
 @theme {
   /* ── surfaces ──────────────────────────────────────────────────────── */
   --color-base: #0a0b0d; /* page */
-  --color-sunken: #07080a; /* recessed wells — company-context blocks */
+  --color-sunken: #07080a; /* recessed wells, company-context blocks */
   --color-raised: #101216; /* panels, cards */
   --color-overlay: #16191f; /* sticky nav fill, mobile menu */
   --color-hover: #1c2029; /* row hover fill */
 
   /* ── ink ───────────────────────────────────────────────────────────── */
-  --color-ink: #f2f4f7; /* 17.5:1 — headlines, accomplishment bullets */
-  --color-ink-2: #a9b1bd; /*  8.9:1 — lede, micro-labels, metadata     */
-  --color-ink-3: #7d8590; /*  5.2:1 — footnotes, source attributions   */
-  --color-ink-4: #5a616b; /*  3.1:1 — decorative / >=24px text only    */
+  --color-ink: #f2f4f7; /* 17.5:1, headlines, accomplishment bullets */
+  --color-ink-2: #a9b1bd; /*  8.9:1, lede, micro-labels, metadata     */
+  --color-ink-3: #7d8590; /*  5.2:1, footnotes, source attributions   */
+  --color-ink-4: #5a616b; /*  3.1:1, decorative / >=24px text only    */
 
   /* ── hairlines ─────────────────────────────────────────────────────── */
   --color-line-faint: #14171c;
@@ -24,15 +24,19 @@
   --color-line-strong: #2a2f3a;
 
   /* ── accent: phosphor amber ────────────────────────────────────────── */
-  --color-accent: #ffb454; /* 10.9:1 on base — AAA */
+  --color-accent: #ffb454; /* 10.9:1 on base (AAA) */
   --color-accent-bright: #ffc978;
-  --color-accent-deep: #c2822f; /* 6.0:1 — dim/inactive strokes */
+  --color-accent-deep: #c2822f; /* 6.0:1, for dim/inactive strokes */
   --color-on-accent: #0a0b0d;
   --color-accent-line: color-mix(in oklab, var(--color-accent) 38%, transparent);
   --color-accent-wash: color-mix(in oklab, var(--color-accent) 10%, transparent);
   --color-accent-glow: color-mix(in oklab, var(--color-accent) 22%, transparent);
 
-  /* ── radii — HUD is sharp ──────────────────────────────────────────── */
+  /* ── background field: orange, deepening toward the page floor ──────── */
+  --color-bloom: #ff9a3c; /* sparse-to-dense blooms through the page body */
+  --color-ember: #7a3410; /* saturated floor under Contact and the footer */
+
+  /* ── radii: sharp HUD ──────────────────────────────────────────────── */
   --radius-xs: 2px;
   --radius-sm: 3px;
   --radius-md: 4px;
@@ -44,22 +48,22 @@
   --text-display: clamp(2.75rem, 7vw, 5.25rem);
   --text-display--line-height: 0.94;
   --text-display--letter-spacing: -0.035em;
-  --text-display--font-weight: 600;
+  --text-display--font-weight: 700; /* Sansation ships 300/400/700 only */
 
   --text-h1: clamp(2rem, 4.6vw, 3.25rem);
   --text-h1--line-height: 1.04;
   --text-h1--letter-spacing: -0.03em;
-  --text-h1--font-weight: 600;
+  --text-h1--font-weight: 700;
 
   --text-h2: clamp(1.625rem, 3.2vw, 2.25rem);
   --text-h2--line-height: 1.12;
   --text-h2--letter-spacing: -0.022em;
-  --text-h2--font-weight: 600;
+  --text-h2--font-weight: 700;
 
   --text-h3: 1.25rem;
   --text-h3--line-height: 1.3;
   --text-h3--letter-spacing: -0.012em;
-  --text-h3--font-weight: 600;
+  --text-h3--font-weight: 700;
 
   --text-lead: clamp(1.0625rem, 1.5vw, 1.1875rem);
   --text-lead--line-height: 1.55;
@@ -67,6 +71,9 @@
 
   --text-body: 1rem;
   --text-body--line-height: 1.7;
+
+  --text-fine: 0.8125rem; /* 13px, fine print that wraps: never uppercase/tracked */
+  --text-fine--line-height: 1.6;
 
   --text-stat: clamp(2.25rem, 4.6vw, 3.25rem);
   --text-stat--line-height: 1;
@@ -78,7 +85,7 @@
   --text-micro-sm--letter-spacing: 0.18em;
   --text-micro-sm--font-weight: 500;
 
-  --text-micro: 0.6875rem; /* 11px — default */
+  --text-micro: 0.6875rem; /* 11px, the default */
   --text-micro--line-height: 1;
   --text-micro--letter-spacing: 0.14em;
   --text-micro--font-weight: 500;
@@ -124,6 +131,10 @@
   }
 
   body {
+    /* Containing block for .ember-field below, so that fixed-position
+       layer can stretch to the full document height instead of just
+       one viewport. */
+    position: relative;
     background-color: var(--color-base);
     color: var(--color-ink);
     font-family: var(--font-sans);
@@ -141,7 +152,7 @@
     color: var(--color-on-accent);
   }
 
-  /* HUD focus ring — never removed without a replacement */
+  /* HUD focus ring: never removed without a replacement */
   :focus-visible {
     outline: 2px solid var(--color-accent);
     outline-offset: 3px;
@@ -174,17 +185,6 @@
   }
 }
 
-@layer components {
-  .micro {
-    font-family: var(--font-mono);
-    font-size: var(--text-micro);
-    line-height: 1;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    font-weight: 500;
-  }
-}
-
 /* ── keyframes: hero bracket draw-in + scroll cue ─────────────────────── */
 @keyframes bracket-in {
   from {
@@ -212,11 +212,55 @@
 }
 
 /* ── v4 custom utilities ──────────────────────────────────────────────── */
-@utility hud-grid {
+
+/* Static (no animation, no scroll listener) full-document backdrop: a
+   scatter of orange blooms that grows larger, hotter, and denser toward
+   the page floor, ending in a near-solid ember wash behind Contact and
+   the footer. Positions are Y% of the *document*, not the viewport, so
+   the ramp holds regardless of scroll position or page length. Requires
+   `position: relative` on body (see @layer base above) so the element
+   this is applied to (absolute, inset-0) stretches to the full scroll
+   height rather than one viewport. */
+@utility ember-field {
+  background-repeat: no-repeat;
   background-image:
-    linear-gradient(to right, var(--color-line-faint) 1px, transparent 1px),
-    linear-gradient(to bottom, var(--color-line-faint) 1px, transparent 1px);
-  background-size: 72px 72px;
+    /* sparse + dim: top ~2-28% of the page */
+    radial-gradient(circle max(220px, 18vw) at 14% 3%, color-mix(in oklab, var(--color-bloom) 5%, transparent), transparent 70%),
+    radial-gradient(circle max(180px, 15vw) at 80% 9%, color-mix(in oklab, var(--color-bloom) 4%, transparent), transparent 70%),
+    radial-gradient(circle max(200px, 16vw) at 46% 18%, color-mix(in oklab, var(--color-bloom) 4%, transparent), transparent 70%),
+    radial-gradient(circle max(220px, 17vw) at 66% 26%, color-mix(in oklab, var(--color-bloom) 5%, transparent), transparent 70%),
+
+    /* medium: ~30-52% */
+    radial-gradient(circle max(260px, 20vw) at 20% 33%, color-mix(in oklab, var(--color-bloom) 8%, transparent), transparent 70%),
+    radial-gradient(circle max(260px, 20vw) at 76% 40%, color-mix(in oklab, var(--color-bloom) 9%, transparent), transparent 70%),
+    radial-gradient(circle max(280px, 22vw) at 42% 48%, color-mix(in oklab, var(--color-bloom) 10%, transparent), transparent 70%),
+    radial-gradient(circle max(240px, 19vw) at 92% 51%, color-mix(in oklab, var(--color-bloom) 8%, transparent), transparent 70%),
+
+    /* dense: ~55-76% */
+    radial-gradient(circle max(320px, 25vw) at 16% 58%, color-mix(in oklab, var(--color-bloom) 15%, transparent), transparent 70%),
+    radial-gradient(circle max(340px, 27vw) at 62% 65%, color-mix(in oklab, var(--color-bloom) 18%, transparent), transparent 70%),
+    radial-gradient(circle max(320px, 25vw) at 86% 71%, color-mix(in oklab, var(--color-bloom) 16%, transparent), transparent 70%),
+    radial-gradient(circle max(340px, 27vw) at 34% 75%, color-mix(in oklab, var(--color-bloom) 20%, transparent), transparent 70%),
+
+    /* hot: ~79-96%, deeper + hotter, overlapping */
+    radial-gradient(circle max(380px, 30vw) at 24% 80%, color-mix(in oklab, var(--color-ember) 45%, transparent), transparent 70%),
+    radial-gradient(circle max(420px, 33vw) at 72% 85%, color-mix(in oklab, var(--color-ember) 50%, transparent), transparent 70%),
+    radial-gradient(circle max(440px, 35vw) at 48% 92%, color-mix(in oklab, var(--color-ember) 55%, transparent), transparent 70%),
+    radial-gradient(circle max(380px, 30vw) at 92% 96%, color-mix(in oklab, var(--color-ember) 45%, transparent), transparent 70%),
+
+    /* floor wash: the "nearly all orange" arrival at the very bottom.
+       Capped at 80% ember so --color-ink-2 keeps AA contrast (~5:1) for
+       the footer sitting directly on it; do not raise this stop without
+       re-checking that contrast. */
+    linear-gradient(
+      to bottom,
+      transparent 0%,
+      color-mix(in oklab, var(--color-ember) 5%, transparent) 40%,
+      color-mix(in oklab, var(--color-ember) 20%, transparent) 62%,
+      color-mix(in oklab, var(--color-ember) 46%, transparent) 78%,
+      color-mix(in oklab, var(--color-ember) 70%, transparent) 90%,
+      color-mix(in oklab, var(--color-ember) 80%, transparent) 100%
+    );
 }
 
 @utility scanlines {

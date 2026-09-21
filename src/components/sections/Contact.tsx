@@ -9,13 +9,13 @@ export function Contact() {
   return (
     <Section id="contact" index="06" eyebrow="Contact" title="Let's build something">
       <Panel brackets bracketSize="lg" padded="lg">
-        <div className="grid grid-cols-1 gap-10 lg:grid-cols-2 lg:gap-16">
+        <div className="grid grid-cols-1 gap-7 lg:grid-cols-2 lg:gap-10">
           <div>
             <p className="max-w-[36ch] text-lead text-ink-2">
               I&rsquo;m looking for Summer 2027 opportunities in security, ML, or embedded systems.
             </p>
             <p className="mt-4 max-w-[42ch] text-sm text-ink-3">
-              Outside of work I&rsquo;m usually at the piano, on a basketball court, or under a car — most
+              Outside of work I&rsquo;m usually at the piano, on a basketball court, or under a car. Most
               recently the one attached to a dynamometer in my garage.
             </p>
             <div className="mt-8">

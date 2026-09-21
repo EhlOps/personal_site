@@ -12,7 +12,7 @@ export function CopyEmail({ email }: { email: string }) {
       setCopied(true);
       setTimeout(() => setCopied(false), 2000);
     } catch {
-      // Clipboard API unavailable — the mailto: link next to this button
+      // Clipboard API unavailable: the mailto: link next to this button
       // still works, so this is a silent no-op rather than an error state.
     }
   };

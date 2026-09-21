@@ -14,7 +14,7 @@ export const projects: Project[] = [
     status: "active",
     start: "2025-09",
     end: null,
-    displayPeriod: "SEPT 2025 — PRESENT",
+    displayPeriod: "SEPT 2025 - PRESENT",
     stack: ["c", "swift", "freertos", "esp32", "kicad", "solidworks"],
     repo: "https://github.com/EhlOps/mini-dyno",
     facts: [
@@ -34,7 +34,7 @@ export const projects: Project[] = [
     status: "active",
     start: "2026-07",
     end: null,
-    displayPeriod: "2026 — PRESENT",
+    displayPeriod: "2026 - PRESENT",
     stack: ["c"],
     repo: "https://github.com/Northeastern-Electric-Racing/Cerberus-2.0",
     teamRepo: {
@@ -47,12 +47,12 @@ export const projects: Project[] = [
     name: "BMS Firmware",
     tagline: "Battery management firmware for 25A's electric racecar.",
     description:
-      "Firmware for the battery management system on Northeastern Electric Racing's 25A car — the software that keeps the pack safe and the car legal to run.",
+      "Firmware for the battery management system on Northeastern Electric Racing's 25A car. It's the software that keeps the pack safe and the car legal to run.",
     group: "embedded",
     status: "active",
     start: "2026-07",
     end: null,
-    displayPeriod: "2026 — PRESENT",
+    displayPeriod: "2026 - PRESENT",
     stack: ["c"],
     repo: "https://github.com/Northeastern-Electric-Racing/TSECU-Shepherd",
     teamRepo: {
@@ -74,7 +74,7 @@ export const projects: Project[] = [
     status: "shipped",
     start: "2024-10",
     end: "2025-01",
-    displayPeriod: "OCT 2024 — JAN 2025",
+    displayPeriod: "OCT 2024 - JAN 2025",
     stack: ["rust"],
     repo: "https://github.com/EhlOps/LoxVM",
     facts: [
@@ -102,12 +102,12 @@ export const projects: Project[] = [
     name: "FIXPDF",
     tagline: "Turns FIX protocol PDFs into deterministic, callable APIs.",
     description:
-      "Parses FIX protocol specification PDFs and automatically maps their message definitions into deterministic API routes on an Express.js server — replacing manual protocol-to-API translation with a repeatable pipeline.",
+      "Parses FIX protocol specification PDFs and automatically maps their message definitions into deterministic API routes on an Express.js server, replacing manual protocol-to-API translation with a repeatable pipeline.",
     group: "systems",
     status: "shipped",
     start: "2025-05",
     end: "2025-06",
-    displayPeriod: "MAY 2025 — JUN 2025",
+    displayPeriod: "MAY 2025 - JUN 2025",
     stack: ["python", "express"],
     repo: "https://github.com/EhlOps/FIXPDF",
   },
@@ -125,7 +125,7 @@ export const projects: Project[] = [
     status: "active",
     start: "2026-07",
     end: null,
-    displayPeriod: "JUL 2026 — PRESENT",
+    displayPeriod: "JUL 2026 - PRESENT",
     stack: ["python", "pandas", "numpy"],
     repo: "https://github.com/EhlOps/auction-estimate",
     facts: [

@@ -1,6 +1,5 @@
 import { site } from "@/data";
 import { Container } from "../primitives/Container";
-import { GridBackdrop } from "../primitives/GridBackdrop";
 import { AvailabilityBadge } from "../primitives/AvailabilityBadge";
 import { MetaRow } from "../primitives/MetaRow";
 import { Brackets } from "../primitives/Brackets";
@@ -9,22 +8,21 @@ import { LinkButton } from "../primitives/Button";
 
 export function Hero() {
   return (
-    <section id="top" className="relative flex min-h-[88svh] items-center overflow-hidden">
-      <GridBackdrop variant="hero" fade />
-      <Container className="w-full py-28 lg:py-20">
+    <section id="top" className="relative flex min-h-[72svh] items-center overflow-hidden">
+      <Container className="w-full py-16 sm:py-20 lg:py-24">
         <div className="grid grid-cols-1 gap-12 lg:grid-cols-12 lg:items-center lg:gap-8">
           <div className="order-2 lg:order-1 lg:col-span-7">
             <Reveal>
               <AvailabilityBadge />
             </Reveal>
             <Reveal delay={60}>
-              <h1 className="mt-6 text-display text-ink">Sam Ehlers</h1>
+              <h1 className="mt-5 text-display text-ink">Sam Ehlers</h1>
             </Reveal>
             <Reveal delay={120}>
-              <p className="mt-5 max-w-[46ch] text-lead text-ink-2">{site.tagline}</p>
+              <p className="mt-4 max-w-[46ch] text-lead text-ink-2">{site.tagline}</p>
             </Reveal>
             <Reveal delay={180}>
-              <div className="mt-9">
+              <div className="mt-7">
                 <MetaRow
                   columns={4}
                   size="sm"
@@ -38,7 +36,7 @@ export function Hero() {
               </div>
             </Reveal>
             <Reveal delay={240}>
-              <div className="mt-10 flex flex-wrap gap-3">
+              <div className="mt-7 flex flex-wrap gap-3">
                 <LinkButton href="#experience" variant="outline">
                   View experience ↓
                 </LinkButton>

@@ -4,7 +4,7 @@ import { ExperienceItem } from "./ExperienceItem";
 
 export function Experience() {
   const years = experience.map((e) => e.start.slice(0, 4));
-  const span = `${Math.min(...years.map(Number))} — PRESENT`;
+  const span = `${Math.min(...years.map(Number))} - PRESENT`;
 
   return (
     <Section
@@ -24,7 +24,7 @@ export function Experience() {
             />
           ))}
         </div>
-        <div className="flex flex-col gap-6 lg:pl-8">
+        <div className="flex flex-col gap-5 lg:pl-8">
           {experience.map((e, i) => (
             <ExperienceItem key={e.id} experience={e} delay={Math.min(i * 60, 240)} />
           ))}

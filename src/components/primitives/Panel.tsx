@@ -21,8 +21,8 @@ const toneClasses = {
 
 const paddingClasses = {
   sm: "p-4 sm:p-5",
-  true: "p-5 sm:p-6 lg:p-8",
-  lg: "p-6 sm:p-8 lg:p-10",
+  true: "p-4 sm:p-5 lg:p-6",
+  lg: "p-5 sm:p-6 lg:p-8",
 };
 
 export function Panel({

@@ -2,13 +2,13 @@ import type { Brand } from "./types";
 
 /**
  * Single source of truth for every logo on the site. See
- * /public/brand/ATTRIBUTION.md for the full license record — it is
+ * /public/brand/ATTRIBUTION.md for the full license record. It is
  * generated from this file (via `brandAttributions` in ./index.ts) so the
  * two cannot drift.
  *
  * PROVENANCE
  *  - "wikimedia": SVG vendored to /public/brand/. Verified via the Commons
- *    imageinfo API on 2026-08-25; every one of these is {{PD-textlogo}} —
+ *    imageinfo API on 2026-08-25; every one of these is {{PD-textlogo}},
  *    below the threshold of originality for COPYRIGHT. The mark is still a
  *    TRADEMARK: used here only to truthfully identify an employer, school,
  *    investor, or certification issuer (nominative fair use), never
@@ -21,7 +21,7 @@ import type { Brand } from "./types";
  *
  * DELIBERATELY ABSENT: Goldman Sachs, Tesla, Franklin Templeton, Ginkgo
  * Bioworks, Palantir, Stripe, Google, PGA Tour, Ferrari. Every one of these
- * has a clean asset available. None is rendered — see experience.ts and the
+ * has a clean asset available. None is rendered; see experience.ts and the
  * plan's attribution section for why (prospects/roadmap items/founder
  * pedigree, never a customer or a shipped integration of Sam's).
  */
@@ -47,7 +47,7 @@ export const brands = {
     asset: "/brand/larx.png",
     wordmark: "LARX",
     // Verified by pixel sampling: the shipped asset is a white wordmark +
-    // light-blue mark on a transparent ground — already built for a dark
+    // light-blue mark on a transparent ground, already built for a dark
     // surface, so it renders natively with no invert filter.
     width: 2560,
     height: 794,
@@ -62,7 +62,7 @@ export const brands = {
     asset: "/brand/overwatch-data.png",
     wordmark: "OVERWATCH DATA",
     // Verified by pixel sampling: white wordmark + blue mark, already built
-    // for a dark surface — renders natively with no invert filter.
+    // for a dark surface; renders natively with no invert filter.
     width: 1000,
     height: 337,
     href: "https://www.overwatchdata.ai",
@@ -207,7 +207,7 @@ export const brands = {
     assetSource: "https://github.com/simple-icons/simple-icons",
   },
 
-  // ── Customers (logos permitted, captioned — never prospects) ───────────
+  // ── Customers (logos permitted, captioned; never prospects) ────────────
   vanguard: {
     id: "vanguard",
     name: "Vanguard",

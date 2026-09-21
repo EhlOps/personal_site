@@ -14,7 +14,7 @@ const statusLabel: Record<Project["status"], string> = {
 
 export function ProjectCard({ project, index }: { project: Project; index: number }) {
   return (
-    <Panel as="article" brackets bracketSize="sm" interactive className="flex flex-col">
+    <Panel as="article" brackets bracketSize="sm" interactive className="flex h-full w-full flex-col">
       <div className="flex items-center justify-between">
         <span className="font-mono text-micro text-ink-3 transition-colors duration-[var(--duration-fast)] group-hover:text-accent">
           PRJ / {String(index).padStart(2, "0")}
@@ -45,8 +45,8 @@ export function ProjectCard({ project, index }: { project: Project; index: numbe
             </Tag>
             <LogoMark brand={getBrand(project.teamRepo.orgBrandId)} height={14} />
           </div>
-          <p className="mt-2 text-micro-lg text-ink-2">
-            <span className="text-ink-3">MY CONTRIBUTION —</span> {project.teamRepo.contribution}
+          <p className="mt-2 text-fine text-ink-2">
+            <span className="font-mono text-micro-lg text-ink-3">MY CONTRIBUTION:</span> {project.teamRepo.contribution}
           </p>
         </div>
       )}
@@ -56,10 +56,16 @@ export function ProjectCard({ project, index }: { project: Project; index: numbe
       </div>
 
       {project.repo && (
-        <div className="relative z-10 mt-4 flex items-center gap-1.5 font-mono text-micro text-ink-3 transition-colors duration-[var(--duration-fast)] group-hover:text-accent">
+        <a
+          href={project.repo}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="relative z-10 mt-4 flex items-center gap-1.5 font-mono text-micro text-ink-3 transition-colors duration-[var(--duration-fast)] group-hover:text-accent"
+        >
           SOURCE
           <ArrowUpRightIcon className="h-3 w-3 transition-transform duration-[var(--duration-fast)] group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-        </div>
+          <span className="sr-only"> (opens in a new tab)</span>
+        </a>
       )}
     </Panel>
   );

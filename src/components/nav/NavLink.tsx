@@ -15,7 +15,7 @@ export function NavLink({ href, index, label, active, onClick }: NavLinkProps) {
       onClick={onClick}
       aria-current={active ? "true" : undefined}
       className={cn(
-        "group relative flex items-center gap-1.5 py-1 font-mono text-micro uppercase transition-colors duration-[var(--duration-fast)]",
+        "group relative flex items-center gap-1 py-1 font-mono text-micro uppercase transition-colors duration-[var(--duration-fast)] xl:gap-1.5",
         active ? "text-accent" : "text-ink-3 hover:text-ink",
       )}
     >

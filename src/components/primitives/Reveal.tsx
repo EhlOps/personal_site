@@ -13,7 +13,7 @@ export interface RevealProps {
 
 /**
  * A thin client wrapper that toggles a data-attribute the CSS in
- * globals.css animates. Its `children` stay server components — React
+ * globals.css animates. Its `children` stay server components: React
  * passes them through as an opaque prop rather than requiring them to cross
  * the client boundary, which is what keeps this at ~1KB instead of pulling
  * an animation library (and all the résumé data it would have to serialize)

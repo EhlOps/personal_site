@@ -18,19 +18,23 @@ export function Projects() {
       title="What I build when no one's asking"
       readout={`${featuredProjects.length} PROJECTS · ${languageCount}+ TECHNOLOGIES`}
     >
-      <div className="flex flex-col gap-14">
+      <div className="flex flex-col gap-9">
         {projectGroups.map((group) => {
           const items = featuredProjects.filter((p) => p.group === group);
           if (!items.length) return null;
 
           return (
             <div key={group}>
-              <Rule label={groupLabels[group]} ticks className="mb-6" />
-              <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
+              <Rule label={groupLabels[group]} ticks className="mb-4" />
+              <div className="flex flex-wrap justify-center gap-5">
                 {items.map((p) => {
                   cardIndex += 1;
                   return (
-                    <Reveal key={p.id} delay={Math.min((cardIndex - 1) * 40, 200)}>
+                    <Reveal
+                      key={p.id}
+                      delay={Math.min((cardIndex - 1) * 40, 200)}
+                      className="flex w-full min-w-0 sm:w-[calc((100%-1.25rem)/2)] lg:w-[calc((100%-2.5rem)/3)]"
+                    >
                       <ProjectCard project={p} index={cardIndex} />
                     </Reveal>
                   );

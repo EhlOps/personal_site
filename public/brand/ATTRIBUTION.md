@@ -1,11 +1,11 @@
 # Brand asset attribution
 
 Every third-party mark rendered on ehlops.com, where it came from, and under what license. This file is
-mirrored by `brandAttributions` in `src/data/index.ts`, which drives the visible colophon in the site footer —
-the two are generated from the same registry (`src/data/brands.ts`) and cannot drift.
+mirrored by `brandAttributions` in `src/data/index.ts`, which drives the visible colophon in the site footer.
+The two are generated from the same registry (`src/data/brands.ts`) and cannot drift.
 
 All marks are trademarks of their respective owners. They are used here only to truthfully identify an
-employer, school, investor, accelerator, or customer relationship — no endorsement or affiliation is implied.
+employer, school, investor, accelerator, or customer relationship. No endorsement or affiliation is implied.
 
 | File | Brand | License | Source |
 | --- | --- | --- | --- |
@@ -30,5 +30,5 @@ employer, school, investor, accelerator, or customer relationship — no endorse
 
 **Not rendered anywhere on this site**, despite clean assets being available: Goldman Sachs, Tesla, Franklin
 Templeton, Ginkgo Bioworks, Palantir, Stripe, Google, PGA Tour, Ferrari. These are prospects, roadmap items, or
-founder-pedigree references rather than customers or employers — see `src/data/experience.ts` for why each is
+founder-pedigree references rather than customers or employers. See `src/data/experience.ts` for why each is
 named in text only.

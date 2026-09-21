@@ -5,9 +5,11 @@ import { SECTIONS, SECTION_IDS } from "@/lib/nav";
 import { useActiveSection } from "@/lib/hooks/useActiveSection";
 import { useScrolled } from "@/lib/hooks/useScrolled";
 import { cn } from "@/lib/utils";
+import { site } from "@/data";
 import { AvailabilityBadge } from "../primitives/AvailabilityBadge";
 import { NavLink } from "./NavLink";
 import { MobileMenu } from "./MobileMenu";
+import { socialIcons } from "./socialIcons";
 import { MenuIcon, CloseIcon } from "../icons";
 
 export function SiteHeader() {
@@ -41,21 +43,41 @@ export function SiteHeader() {
         style={{ height: "var(--header-h)" }}
       >
         <div className="mx-auto flex h-full max-w-[var(--container-content)] items-center justify-between px-5 sm:px-8 lg:px-12">
-          <a
-            href="#top"
-            className="border border-line-strong px-2.5 py-1 font-mono text-micro-lg uppercase text-ink transition-colors duration-[var(--duration-fast)] hover:border-accent hover:text-accent"
-          >
-            Sam Ehlers
-          </a>
+          <div className="flex items-center gap-8">
+            <a
+              href="#top"
+              className="whitespace-nowrap border border-line-strong px-2.5 py-1 font-mono text-micro-lg uppercase text-ink transition-colors duration-[var(--duration-fast)] hover:border-accent hover:text-accent"
+            >
+              Sam Ehlers
+            </a>
 
-          <nav aria-label="Primary" className="hidden items-center gap-7 lg:flex">
-            {SECTIONS.map((s) => (
-              <NavLink key={s.id} href={`#${s.id}`} index={s.index} label={s.label} active={active === s.id} />
-            ))}
-          </nav>
+            <nav aria-label="Primary" className="hidden items-center gap-1 lg:flex xl:gap-7">
+              {SECTIONS.map((s) => (
+                <NavLink key={s.id} href={`#${s.id}`} index={s.index} label={s.label} active={active === s.id} />
+              ))}
+            </nav>
+          </div>
 
-          <div className="flex items-center gap-5">
+          <div className="flex items-center gap-3 xl:gap-5">
             <AvailabilityBadge compact className="hidden md:inline-flex" />
+            <div className="hidden items-center gap-2 lg:flex xl:gap-4">
+              {site.socials.map((s) => {
+                const Icon = socialIcons[s.id];
+                return (
+                  <a
+                    key={s.id}
+                    href={s.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={s.label}
+                    className="text-ink-2 transition-colors duration-[var(--duration-fast)] hover:text-accent"
+                  >
+                    {Icon && <Icon className="h-4 w-4" />}
+                    <span className="sr-only"> (opens in a new tab)</span>
+                  </a>
+                );
+              })}
+            </div>
             <button
               type="button"
               aria-expanded={menuOpen}

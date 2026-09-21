@@ -5,13 +5,7 @@ import { SECTIONS } from "@/lib/nav";
 import { site } from "@/data";
 import { useLockBodyScroll } from "@/lib/hooks/useLockBodyScroll";
 import { AvailabilityBadge } from "../primitives/AvailabilityBadge";
-import { GitHubIcon, LinkedInIcon, XIcon } from "../icons";
-
-const socialIcons: Record<string, React.ComponentType<{ className?: string }>> = {
-  github: GitHubIcon,
-  linkedin: LinkedInIcon,
-  x: XIcon,
-};
+import { socialIcons } from "./socialIcons";
 
 export interface MobileMenuProps {
   open: boolean;

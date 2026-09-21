@@ -16,7 +16,7 @@ export const experience: Experience[] = [
     location: "Boston, MA",
     start: "2026-07",
     end: "2026-12",
-    displayPeriod: "JUL 2026 — DEC 2026",
+    displayPeriod: "JUL 2026 - DEC 2026",
     status: "current",
     summary: "Account security and identity on the auth platform.",
     achievements: [
@@ -37,9 +37,9 @@ export const experience: Experience[] = [
         stack: ["sql", "aws"],
       },
     ],
-    stack: ["python", "sql", "aws", "git"],
+    stack: ["python", "sql", "aws", "git", "java", "seon", "datadog", "cloudflare", "kubernetes"],
     context: {
-      what: "Wearable health and performance platform — hardware plus a subscription health app.",
+      what: "Wearable health and performance platform: hardware plus a subscription health app.",
       facts: [
         {
           label: "VALUATION",
@@ -92,7 +92,7 @@ export const experience: Experience[] = [
         {
           label: "FOUNDED",
           value: "2012",
-          detail: "Boston, MA — founded by Will Ahmed, John Capodilupo, and Aurelian Nicolae",
+          detail: "Boston, MA, founded by Will Ahmed, John Capodilupo, and Aurelian Nicolae",
           attribution: "company",
           weight: 2,
           source: {
@@ -118,7 +118,7 @@ export const experience: Experience[] = [
     location: "Boston, MA",
     start: "2025-07",
     end: "2025-12",
-    displayPeriod: "JUL 2025 — DEC 2025",
+    displayPeriod: "JUL 2025 - DEC 2025",
     status: "past",
     summary: "Geospatial intelligence software for government customers.",
     achievements: [
@@ -146,7 +146,7 @@ export const experience: Experience[] = [
           label: "FIELD DEMO",
           value: "NORTHERN STRIKE '25",
           detail:
-            "Camp Grayling, MI, Sept 2025 — with 20th Special Forces Group, CJSOTF, and the Special Operations Robotics Detachment, during my tenure",
+            "Camp Grayling, MI, Sept 2025, with 20th Special Forces Group, CJSOTF, and the Special Operations Robotics Detachment, during my tenure",
           attribution: "company",
           weight: 1,
           source: {
@@ -163,7 +163,7 @@ export const experience: Experience[] = [
           attribution: "company",
           weight: 1,
           source: {
-            label: "Larx — About",
+            label: "Larx: About",
             url: "https://larx.io/about/",
             verifiedOn: "2026-08-25",
           },
@@ -175,7 +175,7 @@ export const experience: Experience[] = [
           attribution: "company",
           weight: 2,
           source: {
-            label: "Larx — About",
+            label: "Larx: About",
             url: "https://larx.io/about/",
             verifiedOn: "2026-08-25",
           },
@@ -188,7 +188,7 @@ export const experience: Experience[] = [
           attribution: "company",
           weight: 3,
           source: {
-            label: "Larx — About",
+            label: "Larx: About",
             url: "https://larx.io/about/",
             verifiedOn: "2026-08-25",
           },
@@ -210,7 +210,7 @@ export const experience: Experience[] = [
     location: "Atlanta, GA",
     start: "2022-06",
     end: "2024-08",
-    displayPeriod: "JUN 2022 — AUG 2024",
+    displayPeriod: "JUN 2022 - AUG 2024",
     status: "past",
     summary: "Fraud detection, auth, and customer-facing backend at a newly founded YC company.",
     achievements: [
@@ -245,7 +245,7 @@ export const experience: Experience[] = [
       { name: "Ginkgo Bioworks", relationship: "prospect" },
     ],
     clientsDisclaimer:
-      "Organizations I built for or pitched while at Overwatch Data. Named to describe my own work — not an endorsement, partnership, or affiliation. All marks belong to their owners.",
+      "Organizations I built for or pitched while at Overwatch Data. Named to describe my own work, not as an endorsement, partnership, or affiliation. All marks belong to their owners.",
     context: {
       what: "OSINT platform for enterprise cyber, fraud, and security risk teams, monitoring the open and dark web in real time.",
       facts: [
@@ -256,7 +256,7 @@ export const experience: Experience[] = [
           attribution: "company",
           weight: 1,
           source: {
-            label: "Y Combinator — Overwatch",
+            label: "Y Combinator: Overwatch",
             url: "https://www.ycombinator.com/companies/overwatch",
             verifiedOn: "2026-08-25",
           },
@@ -280,7 +280,7 @@ export const experience: Experience[] = [
           attribution: "company",
           weight: 2,
           source: {
-            label: "Y Combinator — Overwatch",
+            label: "Y Combinator: Overwatch",
             url: "https://www.ycombinator.com/companies/overwatch",
             verifiedOn: "2026-08-25",
           },
@@ -293,7 +293,7 @@ export const experience: Experience[] = [
           attribution: "company",
           weight: 2,
           source: {
-            label: "Y Combinator — Overwatch",
+            label: "Y Combinator: Overwatch",
             url: "https://www.ycombinator.com/companies/overwatch",
             verifiedOn: "2026-08-25",
           },

@@ -2,7 +2,7 @@ import type { Experience } from "./types";
 
 /**
  * The traction-control and BMS firmware work is deliberately NOT restated
- * here — it lives as two project cards in projects.ts (group: "embedded"),
+ * here; it lives as two project cards in projects.ts (group: "embedded"),
  * each with its own TEAM REPO chip and MY CONTRIBUTION line. This section is
  * scoped to the operations role, so leadership reads as leadership and the
  * engineering reads as engineering.
@@ -16,7 +16,7 @@ export const leadership: Experience[] = [
     location: "Boston, MA",
     start: "2026-07",
     end: null,
-    displayPeriod: "JUL 2026 — PRESENT",
+    displayPeriod: "JUL 2026 - PRESENT",
     status: "current",
     summary: "Cross-functional program management for a student-built electric formula car.",
     achievements: [
@@ -48,14 +48,14 @@ export const leadership: Experience[] = [
         {
           label: "FH+E RESULT",
           value: "3RD / 29",
-          detail: "Car 24A finished 3rd overall against 29 vehicles at Formula Hybrid+Electric — a team result",
+          detail: "Car 24A finished 3rd overall against 29 vehicles at Formula Hybrid+Electric (a team result)",
           attribution: "team",
           weight: 1,
         },
         {
           label: "ENDURANCE",
           value: "2ND",
-          detail: "First-ever completion of the 44 km endurance event by the team — a team result",
+          detail: "First-ever completion of the 44 km endurance event by the team (a team result)",
           attribution: "team",
           weight: 1,
         },
@@ -66,7 +66,7 @@ export const leadership: Experience[] = [
           attribution: "company",
           weight: 2,
           source: {
-            label: "Northeastern Electric Racing — FSAE",
+            label: "Northeastern Electric Racing: FSAE",
             url: "https://electricracing.northeastern.edu/fsae/",
             verifiedOn: "2026-08-25",
           },

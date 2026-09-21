@@ -10,7 +10,7 @@ export interface TagProps {
   className?: string;
 }
 
-// Literal lookup maps only — Tailwind v4 can't detect dynamically built
+// Literal lookup maps only: Tailwind v4 can't detect dynamically built
 // class strings like `bg-${tone}`.
 const variantTone = {
   solid: {

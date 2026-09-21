@@ -3,7 +3,7 @@ import type { Skill } from "./types";
 /**
  * `rank` mirrors the résumé's explicit "by proficiency" ordering for
  * languages. `icon` is a simple-icons slug, or null where no clean asset
- * exists — those render as mono type chips, which fits the HUD look better
+ * exists; those render as mono type chips, which fits the HUD look better
  * than a mismatched substitute mark (no `llvm` for Clang, no
  * `dassaultsystemes` for SolidWorks).
  */
@@ -39,6 +39,7 @@ export const skills = [
   // ── Cloud ─────────────────────────────────────────────────────────────────
   { id: "aws", name: "AWS", kind: "cloud", rank: 1, icon: null },
   { id: "gcp", name: "Google Cloud", kind: "cloud", rank: 2, icon: "googlecloud" },
+  { id: "oracleCloud", name: "Oracle Cloud", kind: "cloud", rank: 7, icon: null },
 
   // ── Referenced by roles/projects but not part of the résumé's top-level
   //    SKILLS list. Kept here so every `stack` id resolves; rendered in role
@@ -55,6 +56,10 @@ export const skills = [
   { id: "rpi", name: "Raspberry Pi", kind: "hardware", rank: 29, icon: "raspberrypi" },
   { id: "express", name: "Express.js", kind: "framework", rank: 30, icon: "express" },
   { id: "ml", name: "Machine Learning", kind: "tool", rank: 31, icon: null },
+  { id: "seon", name: "SEON", kind: "tool", rank: 32, icon: null },
+  { id: "datadog", name: "Datadog", kind: "tool", rank: 33, icon: null },
+  { id: "cloudflare", name: "Cloudflare", kind: "tool", rank: 34, icon: null },
+  { id: "kubernetes", name: "Kubernetes", kind: "tool", rank: 35, icon: null },
 ] as const satisfies readonly Skill[];
 
 export type SkillId = (typeof skills)[number]["id"];

@@ -10,7 +10,7 @@ export interface MicroLabelProps {
 }
 
 const sizes = { sm: "text-micro-sm", md: "text-micro", lg: "text-micro-lg" };
-// "faint" reads as ink-3 (5.2:1, AA) — ink-4 (3.1:1) fails contrast at these
+// "faint" reads as ink-3 (5.2:1, AA); ink-4 (3.1:1) fails contrast at these
 // sizes and is reserved for genuinely decorative or >=24px text only.
 const tones = { muted: "text-ink-2", ink: "text-ink", accent: "text-accent", faint: "text-ink-3" };
 

@@ -7,6 +7,6 @@ export const SECTIONS = [
   { id: "contact", index: "06", label: "Contact" },
 ] as const;
 
-/** Stable module-level reference — required so useActiveSection's effect
+/** Stable module-level reference, required so useActiveSection's effect
  *  doesn't re-run on every render (a fresh array literal would break that). */
 export const SECTION_IDS = SECTIONS.map((s) => s.id);

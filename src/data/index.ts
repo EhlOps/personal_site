@@ -12,7 +12,7 @@ export {
   projectGroups,
   groupLabels,
 } from "./projects";
-export { heroMetrics, heroMetricCompanyOptional } from "./metrics";
+export { heroMetricCompanyOptional } from "./metrics";
 
 import { brands } from "./brands";
 import { experience } from "./experience";
@@ -26,7 +26,7 @@ export const timeline = [...experience, ...leadership].sort((a, b) => b.start.lo
 export const primaryFacts = (facts: readonly Fact[]) => facts.filter((f) => f.weight === 1);
 
 /**
- * Every sourced claim on the site, for the footer colophon — rendering this
+ * Every sourced claim on the site, for the footer colophon: rendering this
  * is what turns the accuracy discipline from a promise into something a
  * skeptical reader can audit in one place.
  */
@@ -44,7 +44,7 @@ export const brandAttributions = Object.values(brands).filter(
 
 /**
  * Fails the static export if any company-level claim ships without a
- * source. This is the enforcement mechanism behind the attribution model —
+ * source. This is the enforcement mechanism behind the attribution model:
  * a missing source is a build failure, not a code-review miss.
  */
 for (const e of [...experience, ...leadership]) {

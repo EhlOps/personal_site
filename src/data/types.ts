@@ -4,7 +4,7 @@
 // This is the core discipline of the whole site: a claim about a company
 // (valuation, backers, scale, cultural relevance) must never be
 // representable in the same place as a claim about Sam's own work. See
-// `Achievement.attribution` below — it is typed so a company-level outcome
+// `Achievement.attribution` below: it is typed so a company-level outcome
 // literally cannot be entered as one of Sam's bullets.
 // ─────────────────────────────────────────────────────────────────────────
 
@@ -52,7 +52,7 @@ export type LogoProvenance =
   | "wikimedia"
   /** Asset taken from the org's own site/press kit into /public/brand/. */
   | "official"
-  /** No usable asset exists — render `wordmark` as styled type. */
+  /** No usable asset exists; render `wordmark` as styled type. */
   | "none";
 
 export interface Brand {
@@ -67,7 +67,7 @@ export interface Brand {
   /** Mark is dark-on-transparent; needs invert to read on the dark UI. */
   invertOnDark?: boolean;
   /**
-   * "mono" (default) silhouettes the mark via brightness(0)+invert — safe
+   * "mono" (default) silhouettes the mark via brightness(0)+invert, safe
    * for any single-tone logo. Multi-tone / knockout logos (two overlapping
    * opaque regions of different hue, e.g. a light letterform on a dark
    * field) collapse into an indistinguishable blob under that filter and
@@ -122,7 +122,7 @@ export interface Achievement {
   text: string;
   /** Optional pull-out figure rendered as a mono accent badge. */
   metric?: string;
-  /** 'company' is deliberately excluded — see file header. */
+  /** 'company' is deliberately excluded; see file header. */
   attribution: Extract<Attribution, "self" | "team">;
   stack?: SkillId[];
 }
@@ -229,12 +229,10 @@ export interface Metric {
   id: string;
   label: string;
   /**
-   * The bare numeral as a string — StatTile always renders `prefix`/`unit`
-   * as separate flex children around whichever of `value` or the animated
-   * count lands in the middle, so this must NOT include `prefix`/`unit`
-   * text or it renders twice (once baked in, once from the sibling spans).
-   * When `numeric` is set this should read `numeric.toFixed(decimals ?? 0)`;
-   * when it's absent, this is simply the whole final string (e.g. "SUM 2027").
+   * The bare numeral or short string (e.g. "SUM 2027", "$10.1B"). Only
+   * `heroMetricCompanyOptional` uses this type today; a future renderer
+   * for that tile would presumably render `prefix`/`unit` alongside this
+   * as separate elements rather than baking them into `value` itself.
    */
   value: string;
   prefix?: string;
